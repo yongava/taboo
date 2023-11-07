@@ -1,9 +1,14 @@
-// Define the state of the game
+// Define the state of the game with configurable names
 let gameState = {
+  roomNames: {
+    room1: "Alice's",
+    room2: "Bob's",
+    room3: "Charlie's"
+  },
   rooms: {
-    room1: { playerWord: 'โต๊ะ', otherWords: ['ตู้', 'เตียง'], revealed: false },
-    room2: { playerWord: 'ตู้', otherWords: ['โต๊ะ', 'เตียง'], revealed: false },
-    room3: { playerWord: 'เตียง', otherWords: ['ตู้', 'โต๊ะ'], revealed: false },
+    room1: { playerWord: 'Apple', otherWords: ['Banana', 'Cherry'], revealed: false },
+    room2: { playerWord: 'Table', otherWords: ['Chair', 'Sofa'], revealed: false },
+    room3: { playerWord: 'Piano', otherWords: ['Guitar', 'Violin'], revealed: false },
   },
   roomClicked: false
 };
@@ -47,5 +52,13 @@ function revealAllWordsForWatcher() {
   });
 }
 
-// Initialize the game
+// Call this function at the end of setupGame to set the names
+function setRoomNames() {
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('name' + i).textContent = gameState.roomNames['room' + i] + "'s";
+  }
+}
+
+// Call this at the end of the setupGame function
 setupGame();
+setRoomNames();
