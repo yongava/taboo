@@ -1,9 +1,9 @@
 // Define the state of the game
 let gameState = {
   rooms: {
-    room1: { playerWord: 'Apple', revealed: false },
-    room2: { playerWord: 'Table', revealed: false },
-    room3: { playerWord: 'Piano', revealed: false },
+    room1: { playerWord: 'โต๊ะ', otherWords: ['ตู้', 'เตียง'], revealed: false },
+    room2: { playerWord: 'ตู้', otherWords: ['โต๊ะ', 'เตียง'], revealed: false },
+    room3: { playerWord: 'เตียง', otherWords: ['ตู้', 'โต๊ะ'], revealed: false },
   },
   roomClicked: false
 };
