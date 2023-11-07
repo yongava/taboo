@@ -1,23 +1,41 @@
-// Add your JavaScript here
-let rooms = {
-  room1: { playerWord: 'Apple', otherWords: ['Banana', 'Cherry'] },
-  room2: { playerWord: 'Table', otherWords: ['Chair', 'Sofa'] },
-  room3: { playerWord: 'Piano', otherWords: ['Guitar', 'Violin'] },
+// Define the state of the game
+let gameState = {
+  rooms: {
+    room1: { playerWord: 'Apple', otherWords: ['Banana', 'Cherry'], revealed: false },
+    room2: { playerWord: 'Table', otherWords: ['Chair', 'Sofa'], revealed: false },
+    room3: { playerWord: 'Piano', otherWords: ['Guitar', 'Violin'], revealed: false },
+  },
+  roomClicked: false
 };
 
 function setupGame() {
+  // Add click listeners to each player's room
   for (let i = 1; i <= 3; i++) {
-    let room = rooms['room' + i];
     let roomDiv = document.getElementById('room' + i);
-    roomDiv.innerHTML = '<strong>Room ' + i + ' for Player</strong>';
-    roomDiv.innerHTML += '<p>Other Words: ' + room.otherWords.join(', ') + '</p>';
+    roomDiv.addEventListener('click', function() {
+      revealWords(i);
+    });
   }
-
-  let watcherDiv = document.getElementById('room4');
-  watcherDiv.innerHTML = '<strong>Room 4 for Watcher</strong>';
-  Object.values(rooms).forEach(room => {
-    watcherDiv.innerHTML += '<p>' + room.playerWord + '</p>';
-  });
 }
 
+function revealWords(roomNumber) {
+  // Check if a room has already been clicked
+  if (gameState.roomClicked) return;
+
+  // Find the room and change its state to revealed
+  let roomKey = 'room' + roomNumber;
+  gameState.rooms[roomKey].revealed = true;
+
+  // Update the game state to reflect that a room has been clicked
+  gameState.roomClicked = true;
+
+  // Change the content of the div to reveal the words
+  let roomDiv = document.getElementById(roomKey);
+  let room = gameState.rooms[roomKey];
+  roomDiv.innerHTML = '<strong>Room ' + roomNumber + ' for Player</strong>';
+  roomDiv.innerHTML += '<p>Your Word: ' + room.playerWord + '</p>';
+  roomDiv.innerHTML += '<p>Other Words: ' + room.otherWords.join(', ') + '</p>';
+}
+
+// Initialize the game
 setupGame();
