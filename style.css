@@ -1,0 +1,23 @@
+/* Add your CSS styling here */
+#room-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.room {
+  border: 1px solid #000;
+  padding: 20px;
+  width: 20%;
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  flex-direction: column;
+}
+
+/* This is to differentiate the watcher's room visually */
+#room4 {
+  background-color: #f0f0f0;
+}
