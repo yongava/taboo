@@ -48,7 +48,7 @@ function revealOtherWordsForPlayer(roomNumber) {
         });
 
       roomDiv.innerHTML = '<strong> You are in ' + gameState.roomNames['room' + roomNumber] + "'s Room</strong>";
-      roomDiv.innerHTML += '<p>' + otherRooms.join(', ') + '</p>';
+      roomDiv.innerHTML += '<br><p>' + otherRooms.join(', ') + '</p>';
     }
   }
 }
