@@ -1,14 +1,14 @@
 // Define the state of the game with configurable names
 let gameState = {
   roomNames: {
-    room1: "Alice's",
-    room2: "Bob's",
-    room3: "Charlie's"
+    room1: "Ton",
+    room2: "Royle",
+    room3: "Win"
   },
   rooms: {
     room1: { playerWord: 'Apple', otherWords: ['Banana', 'Cherry'], revealed: false },
-    room2: { playerWord: 'Table', otherWords: ['Chair', 'Sofa'], revealed: false },
-    room3: { playerWord: 'Piano', otherWords: ['Guitar', 'Violin'], revealed: false },
+    room2: { playerWord: 'Banana', otherWords: ['Apple', 'Cherry'], revealed: false },
+    room3: { playerWord: 'Cherry', otherWords: ['Apple', 'Banana'], revealed: false },
   },
   roomClicked: false
 };
