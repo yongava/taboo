@@ -47,8 +47,8 @@ function revealOtherWordsForPlayer(roomNumber) {
           return `${playerName}'s word: ${room.playerWord}`;
         });
 
-      roomDiv.innerHTML = '<strong>' + gameState.roomNames['room' + roomNumber] + "'s Room</strong>";
-      roomDiv.innerHTML += '<p>See Other Words: ' + otherRooms.join(', ') + '</p>';
+      roomDiv.innerHTML = '<strong> You are in ' + gameState.roomNames['room' + roomNumber] + "'s Room</strong>";
+      roomDiv.innerHTML += '<p>' + otherRooms.join(', ') + '</p>';
     }
   }
 }
