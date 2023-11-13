@@ -31,26 +31,31 @@ function setupGame() {
 }
 
 function revealOtherWordsForPlayer(roomNumber) {
-  // Find the room and reveal other players' words
+  // Find the room and reveal other players' words along with their names
   let roomDiv = document.getElementById('room' + roomNumber);
-  let room = gameState.rooms['room' + roomNumber];
-  let otherWords = Object.values(gameState.rooms)
-    .filter((_, index) => index !== roomNumber - 1)
-    .map(room => room.playerWord);
+  let otherRooms = Object.entries(gameState.rooms)
+    .filter(([key, _]) => key !== 'room' + roomNumber)
+    .map(([key, room]) => {
+      let playerName = gameState.roomNames[key];
+      return `${playerName}'s word: ${room.playerWord}`;
+    });
 
-  roomDiv.innerHTML = '<strong>Room ' + roomNumber + ' for Player</strong>';
-  roomDiv.innerHTML += '<p>See Other Words: ' + otherWords.join(', ') + '</p>';
+  roomDiv.innerHTML = '<strong>' + gameState.roomNames['room' + roomNumber] + "'s Room</strong>";
+  roomDiv.innerHTML += '<p>See Other Words: ' + otherRooms.join(', ') + '</p>';
 }
 
+
 function revealAllWordsForWatcher() {
-  // Watcher room reveals all words
+  // Watcher room reveals all words with player names
   let watcherDiv = document.getElementById('room4');
   watcherDiv.innerHTML = '<strong>Room 4 for Watcher</strong>';
   Object.keys(gameState.rooms).forEach(roomKey => {
     let room = gameState.rooms[roomKey];
-    watcherDiv.innerHTML += `<p>Room ${roomKey.charAt(roomKey.length - 1)} Word: ${room.playerWord}</p>`;
+    let playerName = gameState.roomNames[roomKey];
+    watcherDiv.innerHTML += `<p>${playerName}'s Word: ${room.playerWord}</p>`;
   });
 }
+
 
 // Call this function at the end of setupGame to set the names
 function setRoomNames() {
