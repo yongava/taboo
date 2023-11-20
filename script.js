@@ -1,14 +1,14 @@
 // Define the state of the game with configurable names
 let gameState = {
   roomNames: {
-    room1: "กอล์ฟ",
-    room2: "เกด",
-    room3: "อร"
+    room1: "จีนส์",
+    room2: "อุ๊",
+    room3: "แป้ง"
   },
   rooms: {
-    room1: { playerWord: 'แอพฯ', otherWords: ['หุ้น', 'ซื้อ'], revealed: false },
-    room2: { playerWord: 'หุ้น', otherWords: ['แอพฯ', 'ซื้อ'], revealed: false },
-    room3: { playerWord: 'ซื้อ', otherWords: ['แอพฯ', 'หุ้น'], revealed: false },
+    room1: { playerWord: 'สเต๊ก', otherWords: ['ข้าวซอย', 'ส้มตำ'], revealed: false },
+    room2: { playerWord: 'ข้าวซอย', otherWords: ['สเต๊ก', 'ส้มตำ'], revealed: false },
+    room3: { playerWord: 'ส้มตำ', otherWords: ['สเต๊ก', 'ข้าวซอย'], revealed: false },
   },
   roomClicked: false
 };
